@@ -1,0 +1,31 @@
+---
+draft: false
+params:
+    type: syntax
+    name: "defconstant"
+title: "defconstant"
+menus: main
+---
+
+[.lisp-definition]
+--
+(defconstant [underline]#name# _form_) -> _<symbol>_
+--
+
+This form is used to define a named constant in the variable namespace of the current toplevel scope.
+The scope of _name_ is the entire current toplevel scope except the body _form_.
+
+Although _name_ is globally constant, a variable binding for _name_ can be locally established by a binding form.
+
+The result of the evaluation of _form_ is bound to the variable named by _name_.
+The binding and the object created as the result of evaluating the second argument are immutable.
+The symbol named _name_ is returned.
+
+.Examples
+[lisp]
+----
+(defconstant e 2.7182818284590451) => e
+e => 2.7182818284590451
+(defun f () e) => f
+(f) => 2.7182818284590451
+----

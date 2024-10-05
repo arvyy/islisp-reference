@@ -1,0 +1,21 @@
+---
+draft: false
+params:
+    type: constant
+    name: "*pi*"
+title: "*pi*"
+menus: main
+---
+
+[.lisp-definition]
+--
+\*pi* -> __<float>__
+--
+
+The value of this constant is an approximation of π.
+
+.Examples
+[lisp]
+----
+*pi* => 3.141592653589793
+----

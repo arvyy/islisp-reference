@@ -1,0 +1,12 @@
+= ISLISP Reference
+
+Welcome to ISLISP online reference.
+The goal of this project is to provide ISLISP specification content in convenient html format.
+
+ISLISP reference is deployed at https://arvyy.github.io/islisp-reference/
+
+== Building
+
+* Install asciidoctor, hugo
+* Open `islisp-reference` folder and run `hugo`; built site will be available at `islisp-reference/public`.
+* Alternatively run `hugo server` to launch local development server; the site should become reachable at http://localhost:1313/islisp-reference/ .

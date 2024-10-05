@@ -1,0 +1,18 @@
+{{ define "main" }}
+    <h1 class="reference__title">
+        {{ .Param "params.name" }}
+        {{ if eq (.Param "params.type") "function"}}
+        <span class="type-badge type-badge--fn">function</span>
+        {{ end }}
+        {{ if eq (.Param "params.type") "syntax"}}
+        <span class="type-badge type-badge--syntax">syntax</span>
+        {{ end }}
+        {{ if eq (.Param "params.type") "constant"}}
+        <span class="type-badge type-badge--constant">constant</span>
+        {{ end }}
+        {{ if eq (.Param "params.type") "class"}}
+        <span class="type-badge type-badge--class">class</span>
+        {{ end }}
+    </h1>
+    {{ .Content }}
+{{ end }}

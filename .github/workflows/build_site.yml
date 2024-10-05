@@ -1,0 +1,36 @@
+name: Build ISLISP Reference site
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build_site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.121.0'
+      - name: 'Install dependencies'
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install asciidoctor
+      - name: 'Build docs'
+        run: |
+          cd islisp-reference
+          hugo
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'islisp-reference/public'
+  deploy_site:
+    needs: [build_site]
+    if: ${{ startsWith(github.ref, 'refs/heads/main') }}
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/deploy-pages@v4

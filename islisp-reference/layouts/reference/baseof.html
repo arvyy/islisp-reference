@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ISLISP Reference | {{ .Title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="icon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="{{ .Site.BaseURL }}/asciidoctor.css" rel="stylesheet">
+    <link href="{{ .Site.BaseURL }}/styles.css" rel="stylesheet">
+</head>
+<body class="reference">
+<header class="reference__header">
+    ISLISP Reference
+</header>
+<nav class="reference__navbar">
+    <ul class="nav-list">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+        <li class="nav-list__item {{- if $currentPage.IsMenuCurrent .Menu . }} nav-list__item--active{{end}}">
+            {{- if $currentPage.IsMenuCurrent .Menu . }}
+                <span class="nav-list__item-text">{{ .Title }}</span>
+            {{- else }}
+                <a href="{{ .URL }}" class="nav-list__item-text">
+                    {{ .Title }}
+                </a>
+            {{- end }}
+            {{ if eq (.Page.Param "params.type") "function"}}
+            <span class="type-badge type-badge--nav type-badge--fn">fun</span>
+            {{ end }}
+            {{ if eq (.Page.Param "params.type") "syntax"}}
+            <span class="type-badge type-badge--nav type-badge--syntax">stx</span>
+            {{ end }}
+            {{ if eq (.Page.Param "params.type") "constant"}}
+            <span class="type-badge type-badge--nav type-badge--constant">cnst</span>
+            {{ end }}
+            {{ if eq (.Page.Param "params.type") "class"}}
+            <span class="type-badge type-badge--nav type-badge--class">cls</span>
+            {{ end }}
+        </li>
+        {{ end }}
+    </ul>
+</nav>
+<div class="reference__content-wrap">
+    <main class="reference__content">
+        {{ block "main" . }}
+        {{ end }}
+    </main>
+</div>
+</body>
+</html>

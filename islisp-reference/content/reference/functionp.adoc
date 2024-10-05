@@ -1,0 +1,24 @@
+---
+draft: false
+params:
+    type: function
+    name: "functionp"
+title: "functionp"
+menus: main
+---
+
+[.lisp-definition]
+--
+(functionp _obj_) -> _boolean_
+--
+
+Returns _t_ if _obj_ is a (normal or generic) function; otherwise, returns _nil_. _obj_ may be any ISLISP object.
+
+.Examples
+[lisp]
+----
+(functionp (function car)) => t
+----
+
+Function bindings are entities established during execution of a prepared link:../labels[labels] or link:../flet[flet] forms or by a function-defining form.
+A function binding is an association between an identifier, _function-name_, and a function object that is denoted by _function-name_ - if in operator position - or by `(function _function-name_)` elsewhere (see link:../function[function]).

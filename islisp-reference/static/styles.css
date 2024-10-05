@@ -1,0 +1,117 @@
+html, body {
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+}
+
+.reference {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "header header"
+        "navbar main";
+}
+
+.reference__header {
+    grid-area: header;
+    background-color: #333;
+    color: white;
+    font-size: 1.5em;
+    padding: 0.5em;
+}
+
+.reference__navbar {
+    min-width: 200px;
+    grid-area: navbar;
+    background-color: #f7f7f8;
+    padding-top: 1em;
+}
+
+.reference__content-wrap {
+    grid-area: main;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
+
+.reference__content {
+    width: 100%;
+    max-width: 960px;
+    padding: 2em;
+}
+
+.type-badge {
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 10px;
+    position: relative;
+    top: -1rem;
+    color: white;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.type-badge--nav {
+    font-size: 0.7rem;
+    top: 0;
+    align-self: center;
+}
+
+.type-badge--fn {
+    background-color: #449914;
+}
+
+.type-badge--syntax {
+    background-color: #a82563;
+}
+
+.type-badge--constant {
+    background-color: #186b9d;
+}
+
+.type-badge--class {
+    background-color: #ca8235;
+}
+
+.reference__title {
+    margin-top: 0;
+    border-bottom: 2px solid;
+}
+
+.nav-list {
+    margin: 0;
+}
+
+.nav-list__item {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5em;
+    border-bottom: 1px #ccc solid;
+}
+
+.nav-list__item--active {
+    background-color: white;
+}
+
+.nav-list__item:hover {
+    background-color: white;
+}
+
+.nav-list__item-text {
+    flex: 1;
+}
+
+.lisp-definition {
+    font-family: monospace;
+    background-color: #f7f7f8;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.lisp-definition p {
+    margin: 0;
+}

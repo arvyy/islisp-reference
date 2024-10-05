@@ -1,0 +1,5 @@
+baseUrl = 'https://arvyy.github.io/islisp-reference/'
+languageCode = 'en-us'
+title = 'ISLISP Reference'
+[security.exec]
+allow = ["^asciidoctor$"]

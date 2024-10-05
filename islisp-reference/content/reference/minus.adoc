@@ -1,0 +1,41 @@
+---
+draft: false
+params:
+    type: function
+    name: "-"
+title: "-"
+menus: main
+---
+
+[.lisp-definition]
+--
+(- _x+_) -> _<number>_
+--
+
+Given one argument, _x_, this function returns its additive inverse.
+An error shall be signaled if _x_ is not a number (link:../domain-error[domain error]).
+If an implementation supports a -0.0 that is distinct from 0.0, then (- 0.0) returns -0.0; in
+implementations where -0.0 and 0.0 are not distinct, (- 0.0) returns 0.0
+
+.Examples
+[lisp]
+----
+(- 1) => -1
+(- -4.0) => 4.0
+(- 4.0) => -4.0
+(eql (- 0.0) -0.0) => t
+(eql (- -0.0) 0.0) => t
+----
+
+Given more than one argument, _x1 ... xn_, - returns their successive differences, _x1 − x2 − ... −xn_.
+An error shall be signaled if any _x_ is not a number (link:../domain-error[domain error]).
+
+.Examples
+[lisp]
+----
+(- 1 2) => -1
+(- 92 43) => 49
+(- 2.3 -3.0) => 5.3
+(- 0.0 0.0) => 0.0
+(- 3 4 5) => -6
+----

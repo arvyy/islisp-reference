@@ -1,0 +1,11 @@
+== ISLISP Reference
+
+Welcome to ISLISP online reference.
+The goal of this project is to provide ISLISP specification content in convenient html format.
+
+Select an entry from the list on the left to get started.
+
+WARNING: The reference is WIP and incomplete
+
+NOTE: See source code and report concerns / suggestions at link:https://github.com/arvyy/islisp-reference[Github]
+
