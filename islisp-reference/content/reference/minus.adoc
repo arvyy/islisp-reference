@@ -1,8 +1,9 @@
 ---
 draft: false
 params:
-    type: function
-    name: "-"
+    entries:
+        - type: function
+          name: "-"
 title: "-"
 menus: main
 ---
@@ -28,7 +29,7 @@ implementations where -0.0 and 0.0 are not distinct, (- 0.0) returns 0.0
 ----
 
 Given more than one argument, _x1 ... xn_, - returns their successive differences, _x1 − x2 − ... −xn_.
-An error shall be signaled if any _x_ is not a number (link:../domain-error[domain error]).
+An error shall be signaled if any _x_ is not a number (link:../<domain-error>[<domain-error>]).
 
 .Examples
 [lisp]

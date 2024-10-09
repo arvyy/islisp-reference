@@ -25,6 +25,8 @@ html, body {
     grid-area: navbar;
     background-color: #f7f7f8;
     padding-top: 1em;
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .reference__content-wrap {
@@ -36,6 +38,7 @@ html, body {
     height: 100%;
     padding-top: 4em;
     padding-bottom: 4em;
+    overflow: scroll;
 }
 
 .reference__content {

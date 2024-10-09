@@ -1,8 +1,9 @@
 ---
 draft: false
 params:
-    type: class
-    name: "<symbol>"
+    entries:
+        - type: class
+          name: "<symbol>"
 title: "<symbol>"
 menus: main
 ---

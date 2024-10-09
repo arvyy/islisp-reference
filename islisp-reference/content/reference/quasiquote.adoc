@@ -1,0 +1,46 @@
+---
+draft: false
+params:
+    entries:
+        - type: syntax
+          name: "`"
+        - type: syntax
+          name: ","
+        - type: syntax
+          name: ",@"
+title: "`"
+menus: main
+---
+
+[.lisp-definition]
+--
+`[underline]#_form_# -> _<object>_
+
+,[underline]#_form_# -> _<object>_
+
+,@[underline]#_form_# -> _<object>_
+--
+
+` or quasiquote constructs a list structure.
+quasiquote, like quote, returns its argument unevaluated if no commas or the syntax , (unquote) or ,@ (unquote-splicing) appear within the _form_.
+
+, (unquote) syntax is valid only within ` (quasiquote) expressions.
+When appearing within a quasiquote the _form_ is evaluated and its result is inserted into the quasiquote structure instead of the unquote _form_.
+
+,@ (unquote-splicing) is also syntax valid only within ` expressions.
+When appearing within a quasiquote the expression _form_ must evaluate to a list.
+The elements of the list are spliced into the enclosing list in place of the unquote-splicing _form_ sequence.
+
+Quasiquote forms may be nested.
+Substitutions are made only for unquoted expressions appearing at the same nesting level, which increases by one inside each successive quasiquotation and decreases by one inside each unquotation.
+
+.Examples
+[lisp]
+----
+`(list ,(+ 1 2) 4) => (list 3 4)
+(let ((name 'a)) `(list name ,name ',name)) => (list name a (quote a))
+`(a ,(+ 1 2) ,@(create-list 3 'x) b) => (a 3 x x x b)
+`((foo ,(- 10 3)) ,@(cdr '(c)) . ,(car '(cons))) => ((foo 7) . cons)
+`(a `(b ,(+ 1 2) ,(foo ,(+ 1 3) d) e) f) => (a `(b ,(+ 1 2) ,(foo 4 d) e) f)
+(let ((name1 'x) (name2 'y)) `(a `(b ,,name1 ,',name2 d) e)) => (a `(b ,x ,'y d) e)
+----

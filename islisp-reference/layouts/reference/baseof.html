@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href="{{ .Site.BaseURL }}/asciidoctor.css" rel="stylesheet">
     <link href="{{ .Site.BaseURL }}/styles.css" rel="stylesheet">
+    {{ if (isset (.Param "params") "redirect") }}
+    <meta http-equiv="refresh" content="0; url={{ .Param "params.redirect" }}" />
+    {{ end }}
 </head>
 <body class="reference">
 <header class="reference__header">
@@ -28,16 +31,17 @@
                     {{ .Title }}
                 </a>
             {{- end }}
-            {{ if eq (.Page.Param "params.type") "function"}}
+            {{ $type := (index (.Page.Param "params.entries") 0).type }}
+            {{ if eq $type "function"}}
             <span class="type-badge type-badge--nav type-badge--fn">fun</span>
             {{ end }}
-            {{ if eq (.Page.Param "params.type") "syntax"}}
+            {{ if eq $type "syntax"}}
             <span class="type-badge type-badge--nav type-badge--syntax">stx</span>
             {{ end }}
-            {{ if eq (.Page.Param "params.type") "constant"}}
+            {{ if eq $type "constant"}}
             <span class="type-badge type-badge--nav type-badge--constant">cnst</span>
             {{ end }}
-            {{ if eq (.Page.Param "params.type") "class"}}
+            {{ if eq $type "class"}}
             <span class="type-badge type-badge--nav type-badge--class">cls</span>
             {{ end }}
         </li>

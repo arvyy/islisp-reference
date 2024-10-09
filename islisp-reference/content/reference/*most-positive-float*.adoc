@@ -1,0 +1,16 @@
+---
+draft: false
+params:
+    entries:
+        - type: constant
+          name: "*most-positive-float*"
+title: "*most-positive-float*"
+menus: main
+---
+
+[.lisp-definition]
+--
+\*most-positive-float* -> __<float>__
+--
+
+The value of \*most-positive-float* is the implementation-dependent floating-point number closest to positive infinity.

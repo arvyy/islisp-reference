@@ -1,0 +1,47 @@
+---
+draft: false
+params:
+    entries:
+        - type: syntax
+          name: "lambda"
+title: "lambda"
+menus: main
+---
+
+[.lisp-definition]
+--
+(lambda [underline]#_lambda-list_# [underline]#_form_#*) -> <function>
+
+
+Where
+
+_lambda-list_ ::= (_identifier_* [&rest _identifier_])
+
+_lambda-list_ ::= (_identifier_* [:rest _identifier_])
+--
+
+No _identifier_ may appear more than once in _lambda-list_.
+
+Execution of the lambda special form creates a function object.
+
+The scope of the identifiers of the _lambda-list_ is the sequence of forms _form_*, collectively referred to as the _body_.
+
+When the prepared function is activated later (even if transported as object to some other activation) with some arguments, the body of the function is evaluated as if it was at the same textual position where the lambda special form is located, but in a context where the lambda variables are bound in the variable namespace with the values of the corresponding arguments.
+A &rest or :rest variable, if any, is bound to the list of the values of the remaining arguments. 
+An error shall be signaled if the number of arguments received is incompatible with the specified lambda-list (see  link:../<arity-error>[<arity-error>]).
+
+Once the lambda variables have been bound, the body is executed.
+If the body is empty, nil is returned otherwise the result of the evaluation of the last form of body is returned if the body was not left by a non-local exit.
+
+If the function receives a &rest or :rest parameter _R_, the list _L1_ to which that parameter is bound has indefinite extent. 
+_L1_ is newly allocated unless the function was called with apply and _R_ corresponds to the final argument, _L2_, to that call to apply (or some subtail of _L2_), in which case it is implementation defined whether _L1_ shares structure with _L2_.
+
+
+.Examples
+[lisp]
+----
+((lambda (x y) (+ (* x x) (* y y))) 3 4) => 25
+((lambda (x y &rest z) z) 3 4 5 6) => (5 6)
+((lambda (x y :rest z) z) 3 4 5 6) => (5 6)
+(funcall (lambda (x y) (- y (* x y))) 7 3) => -18
+----

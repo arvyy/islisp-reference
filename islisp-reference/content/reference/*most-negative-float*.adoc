@@ -1,0 +1,16 @@
+---
+draft: false
+params:
+    entries:
+        - type: constant
+          name: "*most-negative-float*"
+title: "*most-negative-float*"
+menus: main
+---
+
+[.lisp-definition]
+--
+\*most-negative-float* -> __<float>__
+--
+
+The value of \*most-negative-float* is the implementation-dependent floating-point number closest to negative infinity.

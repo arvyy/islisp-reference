@@ -1,0 +1,31 @@
+---
+draft: false
+params:
+    entries:
+        - type: syntax
+          name: "if"
+title: "if"
+menus: main
+---
+
+[.lisp-definition]
+--
+(if _test-form_ _then-form_ [_else-form_]) -> _<object>_
+--
+
+The _test-form_ is evaluated.
+If its result is anything non-nil, the _then-form_ is evaluated and its value is returned; otherwise (if the _test-form_ returned nil), the _else-form_ is evaluated and its value is returned.
+
+If no _else-form_ is provided, it defaults to nil.
+
+.Examples
+[lisp]
+----
+(if (> 3 2) 'yes 'no) => yes
+(if (> 2 3) 'yes 'no) => no
+(if (> 2 3) 'yes) ⇒ nil
+(if (> 3 2) (- 3 2) (+ 3 2)) => 1
+
+(let ((x 7))
+  (if (< x 0) x (- x))) => -7
+----

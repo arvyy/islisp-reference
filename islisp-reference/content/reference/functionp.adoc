@@ -1,8 +1,9 @@
 ---
 draft: false
 params:
-    type: function
-    name: "functionp"
+    entries:
+        - type: function
+          name: "functionp"
 title: "functionp"
 menus: main
 ---

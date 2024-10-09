@@ -1,15 +1,16 @@
 ---
 draft: false
 params:
-    type: syntax
-    name: "defconstant"
+    entries:
+        - type: syntax
+          name: "defconstant"
 title: "defconstant"
 menus: main
 ---
 
 [.lisp-definition]
 --
-(defconstant [underline]#name# _form_) -> _<symbol>_
+(defconstant [underline]#_name_# _form_) -> _<symbol>_
 --
 
 This form is used to define a named constant in the variable namespace of the current toplevel scope.

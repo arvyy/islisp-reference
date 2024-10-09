@@ -1,0 +1,32 @@
+---
+draft: false
+params:
+    entries:
+        - type: syntax
+          name: "function"
+title: "function"
+menus: main
+---
+
+[.lisp-definition]
+--
+(function [underline]#_function-name_#) -> _<function>_
+
++#+'[underline]#_function-name_# -> _<function>_
+--
+
+This special form denotes a reference to the function named by _function-name_.
+This special form is used to refer to identifiers defined by function-defining forms, link:../labels[labels], or link:../flet[flet] which are not in operator position.
+
+`(function _function-name_)` can be written as `#'_function-name_`.
+
+It returns the function object named by _function-name_.
+
+An error shall be signaled if no binding has been established for the identifier in the function namespace of current lexical environment (see link:../<undefined-function>[<undefined-function>]). The consequences are undefined if the _function-name_ names a macro or special form.
+
+.Examples
+[lisp]
+----
+(funcall (function -) 3) => -3
+(apply #'- '(4 3)) => 1
+----

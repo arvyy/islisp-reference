@@ -1,0 +1,40 @@
+---
+draft: false
+params:
+    entries:
+        - type: syntax
+          name: "quote"
+title: "quote"
+menus: main
+---
+
+[.lisp-definition]
+--
+(quote [underline]#_obj_#) -> _<object>_
+
+'[underline]#_obj_# -> _<object>_
+--
+
+A quoted expression denotes a reference to an object. This notation is used to include any object in an ISLISP text.
+
+The character `'` (apostrophe or single quote) is syntax for quotation. That is, `(quote a) ≡ 'a`.
+
+The result of the evaluation of the quote special form is _obj_.
+
+.Examples
+[lisp]
+----
+(quote a) => a
+(quote #(a b c)) => #(a b c)
+(quote (+ 1 2)) => (+ 1 2)
+'() => nil
+'a => a
+'#(a b c) => #(a b c)
+'(car l) => (car l)
+'(+ 1 2) => (+ 1 2)
+'(quote a) => (quote a)
+''a => (quote a)
+(car ''a) => quote
+----
+
+The consequences are undefined if an attempt is made to alter the value of a quoted expression.

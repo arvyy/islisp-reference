@@ -1,0 +1,19 @@
+---
+draft: false
+params:
+    type: function
+    name: "{{ replace .File.ContentBaseName "-" " " | title }}"
+title: "{{ replace .File.ContentBaseName "-" " " | title }}"
+menus: main
+---
+
+[.lisp-definition]
+--
+TODO
+--
+
+
+.Examples
+[lisp]
+----
+----

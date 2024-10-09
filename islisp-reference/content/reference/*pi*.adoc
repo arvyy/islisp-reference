@@ -1,8 +1,9 @@
 ---
 draft: false
 params:
-    type: constant
-    name: "*pi*"
+    entries:
+        - type: constant
+          name: "*pi*"
 title: "*pi*"
 menus: main
 ---

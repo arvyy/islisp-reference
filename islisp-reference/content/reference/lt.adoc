@@ -1,0 +1,50 @@
+---
+draft: false
+params:
+    entries:
+        - type: function
+          name: ">="
+        - type: function
+          name: "<="
+        - type: function
+          name: ">"
+        - type: function
+          name: "<"
+title: "<"
+menus: main
+---
+
+[.lisp-definition]
+--
+(>= _x1_ _x2_) -> _boolean_
+
+(<= _x1_ _x2_) -> _boolean_
+
+(> _x1_ _x2_) -> _boolean_
+
+(< _x1_ _x2_) -> _boolean_
+--
+
+>= returns t if _x1_ is greater than or = _x2_.
+<= returns t if _x1_ is less than or = _x2_.
+> returns t if _x1_ is greater than _x2_.
+< returns t if _x1_ is less than _x2_.
+
+The mathematical values of the arguments are compared.
+An error shall be signaled if either _x1_ or _x2_ is not a number (link:../domain-error[domain error]).
+
+.Examples
+[lisp]
+----
+(> 2 2) => nil
+(> 2.0 2) => nil
+(> 2 -10) => t
+(> 100 3) => t
+(< 2 2) => nil
+(< 1 2) => t
+(>= 2 2) => t
+(>= 2.0 2) => t
+(>= -1 2) => nil
+(<= -1 2) => t
+(<= 2 -1) => nil
+----

@@ -1,0 +1,25 @@
+---
+draft: false
+params:
+    entries:
+        - type: function
+          name: "/="
+title: "/="
+menus: main
+---
+
+[.lisp-definition]
+--
+(/= _x1_ _x2_) -> _boolean_
+--
+
+Returns t if _x1_ and _x2_ have mathematically distinct values; otherwise, returns nil.
+An error shall be signaled if either _x1_ or _x2_ is not a number (link:../domain-error[domain error]).
+
+.Examples
+[lisp]
+----
+(/= 3 4) => t
+(/= 3 3.0) => nil
+(/= (parse-number "134.54") 134.54) => nil
+----

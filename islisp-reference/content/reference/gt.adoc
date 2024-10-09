@@ -1,0 +1,10 @@
+---
+draft: false
+params:
+    redirect: '../lt'
+    entries:
+        - name: ">"
+          type: function
+title: ">"
+menus: main
+---

@@ -1,8 +1,9 @@
 ---
 draft: false
 params:
-    type: function
-    name: "+"
+    entries:
+        - type: function
+          name: "+"
 title: +
 menus: main
 ---
@@ -16,7 +17,7 @@ The function + returns the sum of its arguments.
 If all arguments are integers, the result is an integer.
 If any argument is a float, the result is a float.
 When given no arguments, + returns 0.
-An error shall be signaled if any x is not a number (error-id. domain-error).
+An error shall be signaled if any x is not a number (link:../<domain-error>[<domain-error>]).
 
 .Examples
 [lisp]

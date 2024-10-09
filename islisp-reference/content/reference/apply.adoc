@@ -1,0 +1,34 @@
+---
+draft: false
+params:
+    entries:
+        - type: function
+          name: "apply"
+title: "apply"
+menus: main
+---
+
+[.lisp-definition]
+--
+(apply _function_ _obj*_ _list_) -> _<object>_
+--
+
+Applies _function_ to the arguments, _obj*_, followed by the elements of _list_, if any.
+It returns the value returned by _function_.
+
+An error shall be signaled if _function_ is not a function (see link:../<domain-error>[<domain-error>]).
+Each _obj_ may be any ISLISP object.
+An error shall be signaled if _list_ is not a proper list (see link:../<program-error>[<program-error>]).
+
+.Examples
+[lisp]
+----
+(apply (if (< 1 2) (function max) (function min))
+       1 2 (list 3 4)) => 4
+
+(defun compose (f g)
+  (lambda (:rest args)
+    (funcall f (apply g args))))) => compose
+
+(funcall (compose (function sqrt) (function *)) 12 75) => 30
+----
