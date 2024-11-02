@@ -1,0 +1,28 @@
+---
+draft: false
+params:
+    entries:
+        - type: function
+          name: "append"
+title: "append"
+menus: main
+---
+
+[.lisp-definition]
+--
+(append _list_* ) -> _<list>_
+--
+
+Returns the result of appending all of the _lists_, or () if given no _lists_.
+An error shall be signaled if any list is not a list (link:../<domain-error>[domain error]).
+
+This function does not modify its arguments.
+It is implementation defined whether and when the result shares structure with its _list_ arguments.
+
+An error shall be signaled if the list cannot be allocated (link:../<storage-exhausted>[storage exhausted error]).
+
+.Examples
+[lisp]
+----
+(append '(a b c) '(d e f)) => (a b c d e f)
+----

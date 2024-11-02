@@ -1,0 +1,18 @@
+---
+draft: false
+params:
+    entries:
+        - type: class
+          name: "<number>"
+title: "<number>"
+menus: main
+---
+
+[.lisp-class-hierarchy]
+.Hierarchy
+* link:../<object>[<object>]
+** <number>
+*** link:../<float>[<float>]
+*** link:../<integer>[<integer>]
+
+The class <number> has the disjoint subclasses <float> and <integer>.

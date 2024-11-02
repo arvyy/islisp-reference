@@ -1,0 +1,46 @@
+---
+draft: false
+params:
+    entries:
+        - type: syntax
+          name: "and"
+title: "and"
+menus: main
+---
+
+[.lisp-definition]
+--
+(and _form_* ) -> _<object>_
+--
+
+and is the sequential logical "and" (or "∧").
+_forms_ are evaluated from left to right until either one of them evaluates to nil or else none are left.
+If one of them evaluates to nil, then nil is returned from the and; otherwise, the value of the last evaluated form is returned.
+The form and is equivalent to the following:
+
+[lisp]
+----
+(and) ≡ 't
+(and form) ≡ form
+(and form1 form2 ... formn) ≡ (if form1 (and form2 ... formn) 'nil)
+----
+
+.Examples
+[lisp]
+----
+(and (= 2 2) (> 2 1)) => t
+(and (= 2 2) (< 2 1)) => nil
+(and (eql 'a 'a) (not (> 1 2))) => t
+(let ((x 'a)) (and x (setq x 'b))) => b
+(let ((x nil)) (and x (setq x 'b))) => nil
+
+(let ((time 10))
+    (if (and (< time 24) (> time 12))
+        (- time 12) time))
+=> 10
+
+(let ((time 18))
+    (if (and (< time 24) (> time 12))
+        (- time 12) time))
+=> 6
+----

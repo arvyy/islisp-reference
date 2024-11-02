@@ -9,4 +9,16 @@ ISLISP reference is deployed at https://arvyy.github.io/islisp-reference/
 
 * Install asciidoctor, hugo
 * Open `islisp-reference` folder and run `hugo`; built site will be available at `islisp-reference/public`.
-* Alternatively run `hugo server` to launch local development server; the site should become reachable at http://localhost:1313/islisp-reference/ .
+
+INFO: islisp-reference is known to work with hugo version 0.121
+
+== Development
+
+* Run `hugo server` to launch local development server; the site should become reachable at http://localhost:1313/islisp-reference/ .
+* Alternatively, you can run hugo through a container:
+**
++
+----
+podman build . -t hugo
+podman run --rm -v $(pwd)/islisp-reference/:/islisp-reference/:z -w /islisp-reference -p 1313:1313 hugo
+----

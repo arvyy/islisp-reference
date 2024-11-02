@@ -118,3 +118,60 @@ html, body {
 .lisp-definition p {
     margin: 0;
 }
+
+/* https://entropicthoughts.com/draw-a-tree-structure-with-only-css */
+.lisp-class-hierarchy,
+.lisp-class-hierarchy ul,
+.lisp-class-hierarchy li
+{
+    position: relative;
+}
+
+.lisp-class-hierarchy ul,
+.lisp-class-hierarchy .ulist,
+.lisp-class-hierarchy p
+{
+    margin-bottom: 0;
+}
+
+.lisp-class-hierarchy ul {
+    list-style: none;
+    padding-left: 32px;
+    margin-left: 0;
+}
+
+.lisp-class-hierarchy li::before,
+.lisp-class-hierarchy li::after {
+    content: "";
+    position: absolute;
+    left: -12px;
+}
+
+.lisp-class-hierarchy li::before {
+    border-top: 1px solid #000;
+    top: 9px;
+    width: 8px;
+    height: 0;
+}
+
+.lisp-class-hierarchy li::after {
+    border-left: 1px solid #000;
+    height: 100%;
+    width: 0px;
+    top: 2px;
+}
+
+.lisp-class-hierarchy ul > li:last-child::after {
+    height: 8px;
+}
+
+/* hide lines for <object>*/
+.lisp-class-hierarchy > ul > li::before,
+.lisp-class-hierarchy > ul > li::after
+{
+    border: none;
+}
+
+.lisp-class-hierarchy {
+    margin-bottom: 1.25em;
+}

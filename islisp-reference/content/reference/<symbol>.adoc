@@ -8,10 +8,10 @@ title: "<symbol>"
 menus: main
 ---
 
-[.lisp-definition]
---
-<symbol> _extends_ <object>
---
+[.lisp-class-hierarchy]
+.Hierarchy
+* link:../<object>[<object>]
+** <symbol>
 
 A symbol (an instance of class <symbol>) is an object. Symbols can be *named* or *unnamed*.
 A symbol’s name is sometimes called a *print name* because it is used to identify the symbol during reading and printing.

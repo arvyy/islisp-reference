@@ -1,0 +1,25 @@
+---
+draft: false
+params:
+    entries:
+        - type: function
+          name: "numberp"
+title: "numberp"
+menus: main
+---
+
+[.lisp-definition]
+--
+(numberp _obj_) -> _boolean_
+--
+
+Returns t if _obj_ is a number (instance of class link:../<number>[<number>]); otherwise, returns nil. The _obj_ may be any ISLISP object.
+
+.Examples
+[lisp]
+----
+(numberp 3) => t
+(numberp -0.3) => t
+(numberp '(a b c)) => nil
+(numberp "17") => nil
+----

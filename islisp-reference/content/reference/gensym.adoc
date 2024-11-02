@@ -1,0 +1,25 @@
+---
+draft: false
+params:
+    entries:
+        - type: function
+          name: "gensym"
+title: "gensym"
+menus: main
+---
+
+[.lisp-definition]
+--
+(gensym) -> _<symbol>_
+--
+
+Returns an unnamed symbol. gensym is useful for writing macros. It is impossible for an identifier to name an unnamed symbol.
+
+.Examples
+[lisp]
+----
+(defmacro twice (x)
+  (let ((v (gensym)))
+    `(let ((,v ,x)) (+ ,v ,v)))) => twice
+(twice 5) => 10
+----

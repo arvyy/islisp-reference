@@ -14,7 +14,7 @@ menus: main
 --
 
 Given one argument, _x_, this function returns its additive inverse.
-An error shall be signaled if _x_ is not a number (link:../domain-error[domain error]).
+An error shall be signaled if _x_ is not a number (link:../<domain-error>[domain error]).
 If an implementation supports a -0.0 that is distinct from 0.0, then (- 0.0) returns -0.0; in
 implementations where -0.0 and 0.0 are not distinct, (- 0.0) returns 0.0
 
